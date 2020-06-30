@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		0458B0BC24AA65CB008BD02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0BB24AA65CB008BD02D /* AppDelegate.swift */; };
 		0458B0BE24AA65CB008BD02D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0BD24AA65CB008BD02D /* SceneDelegate.swift */; };
-		0458B0C024AA65CB008BD02D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0BF24AA65CB008BD02D /* ViewController.swift */; };
 		0458B0C324AA65CB008BD02D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0458B0C124AA65CB008BD02D /* Main.storyboard */; };
 		0458B0C524AA65CD008BD02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0458B0C424AA65CD008BD02D /* Assets.xcassets */; };
 		0458B0C824AA65CD008BD02D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0458B0C624AA65CD008BD02D /* LaunchScreen.storyboard */; };
+		0458B0D624AA675D008BD02D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0D524AA675D008BD02D /* HomeViewController.swift */; };
+		0458B0D824AA6F80008BD02D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0D724AA6F80008BD02D /* Extensions.swift */; };
+		0458B0DA24AA70AC008BD02D /* HomeNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0D924AA70AC008BD02D /* HomeNavigationStackView.swift */; };
+		0458B0DC24ABCFD3008BD02D /* ButtomControlStackview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B0DB24ABCFD3008BD02D /* ButtomControlStackview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0458B0B824AA65CB008BD02D /* Tinder Dating App Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinder Dating App Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0458B0BB24AA65CB008BD02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0458B0BD24AA65CB008BD02D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0458B0BF24AA65CB008BD02D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0458B0C224AA65CB008BD02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0458B0C424AA65CD008BD02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0458B0C724AA65CD008BD02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0458B0C924AA65CD008BD02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0458B0D524AA675D008BD02D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0458B0D724AA6F80008BD02D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0458B0D924AA70AC008BD02D /* HomeNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationStackView.swift; sourceTree = "<group>"; };
+		0458B0DB24ABCFD3008BD02D /* ButtomControlStackview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomControlStackview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,66 @@
 		0458B0BA24AA65CB008BD02D /* Tinder Dating App Clone */ = {
 			isa = PBXGroup;
 			children = (
+				0458B0D324AA667C008BD02D /* Model */,
+				0458B0D224AA6678008BD02D /* View */,
+				0458B0D124AA6676008BD02D /* ViewModel */,
+				0458B0D024AA6672008BD02D /* Controllers */,
+				0458B0CF24AA666E008BD02D /* API */,
+				0458B0D424AA66B6008BD02D /* Utility */,
 				0458B0BB24AA65CB008BD02D /* AppDelegate.swift */,
 				0458B0BD24AA65CB008BD02D /* SceneDelegate.swift */,
-				0458B0BF24AA65CB008BD02D /* ViewController.swift */,
 				0458B0C124AA65CB008BD02D /* Main.storyboard */,
 				0458B0C424AA65CD008BD02D /* Assets.xcassets */,
 				0458B0C624AA65CD008BD02D /* LaunchScreen.storyboard */,
 				0458B0C924AA65CD008BD02D /* Info.plist */,
 			);
 			path = "Tinder Dating App Clone";
+			sourceTree = "<group>";
+		};
+		0458B0CF24AA666E008BD02D /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		0458B0D024AA6672008BD02D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0458B0D524AA675D008BD02D /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0458B0D124AA6676008BD02D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0458B0D224AA6678008BD02D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0458B0D924AA70AC008BD02D /* HomeNavigationStackView.swift */,
+				0458B0DB24ABCFD3008BD02D /* ButtomControlStackview.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0458B0D324AA667C008BD02D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0458B0D424AA66B6008BD02D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0458B0D724AA6F80008BD02D /* Extensions.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0458B0C024AA65CB008BD02D /* ViewController.swift in Sources */,
+				0458B0DC24ABCFD3008BD02D /* ButtomControlStackview.swift in Sources */,
 				0458B0BC24AA65CB008BD02D /* AppDelegate.swift in Sources */,
 				0458B0BE24AA65CB008BD02D /* SceneDelegate.swift in Sources */,
+				0458B0DA24AA70AC008BD02D /* HomeNavigationStackView.swift in Sources */,
+				0458B0D624AA675D008BD02D /* HomeViewController.swift in Sources */,
+				0458B0D824AA6F80008BD02D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
