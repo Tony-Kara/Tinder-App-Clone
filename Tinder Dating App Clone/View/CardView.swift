@@ -75,7 +75,7 @@ private lazy var infoButton: UIButton = {
     //MARK: - Actions
     
     @objc func handlePanGesture(sender: UIPanGestureRecognizer){
-        let translation = sender.translation(in: nil) // The translation gives the X AND Y positions
+         
         
         switch sender.state{
             
@@ -83,12 +83,9 @@ private lazy var infoButton: UIButton = {
         case .began:
             print("DEBUG: Pan did begin")
         case .changed:
-            let degrees: CGFloat = translation.x / 20
-            let angle = degrees * .pi / 180
-            let rotationalTransform = CGAffineTransform(rotationAngle: angle)
-            self.transform = rotationalTransform.translatedBy(x: translation.x, y: translation.y)
+           panCard(sender: sender)
         case .ended:
-            print("DEBUG: Pan ended")
+            resetCardPosition(sender: sender)
         
         default: break
         }
@@ -101,6 +98,23 @@ private lazy var infoButton: UIButton = {
     }
     
     //MARK: - Helpers
+    
+    func panCard(sender: UIPanGestureRecognizer) {
+        // The translation gives the X AND Y positions
+        let translation = sender.translation(in: nil)
+        let degrees: CGFloat = translation.x / 20
+                   let angle = degrees * .pi / 180
+                   let rotationalTransform = CGAffineTransform(rotationAngle: angle)
+                   self.transform = rotationalTransform.translatedBy(x: translation.x, y: translation.y)
+    }
+    
+    func resetCardPosition(sender: UIPanGestureRecognizer) {
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+            self.transform = .identity // this returns the
+        }) { _ in
+            print("DEBUG: aNIMAtion did complete")
+        }
+    }
     
     func configureGradientLayers()  {
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
