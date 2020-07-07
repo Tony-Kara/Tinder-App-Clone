@@ -8,7 +8,13 @@
 
 import UIKit
 class CardView: UIView {
-// Properties
+                          //int is the raw value
+    enum  SwipeDirection: Int {
+        case left = -1
+        case right = 1
+    }
+    
+    //MARK: - Properties
 private let gradientLayer = CAGradientLayer()
     
 private let imageView: UIImageView = {
@@ -81,7 +87,7 @@ private lazy var infoButton: UIButton = {
             
       
         case .began:
-            print("DEBUG: Pan did begin")
+            superview?.subviews.forEach({ $0.layer.removeAllAnimations() }) // remove all animation before starting panning gestures.
         case .changed:
            panCard(sender: sender)
         case .ended:
@@ -109,10 +115,30 @@ private lazy var infoButton: UIButton = {
     }
     
     func resetCardPosition(sender: UIPanGestureRecognizer) {
+        // This checks for the swipe direction in the x-axis(left or right direction), if the swift direction is above 100, the swipe was to the right and if less than 100, the swipe was to the left.
+        let direction:SwipeDirection = sender.translation(in: nil).x > 100 ? .right : .left
+        //This dimiss the card as long as the translation in the x-axis is above 100
+        let shouldDismissCard = abs(sender.translation(in: nil).x) > 100
+        
+        //Animation
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
-            self.transform = .identity // this returns the
+            
+            if shouldDismissCard == true {
+                let xTranslation = CGFloat(direction.rawValue) * 1000 // This ensures the card in focus is swiped away from the screen to the left or right depending on the "direction" property which will have a raw value of -1 or +1 ensuring the card is floated by a 1000 or -1000 pixel away from the screen
+                let offScreenTransform = self.transform.translatedBy(x: xTranslation, y: 0)
+                self.transform = offScreenTransform
+            }
+            else {
+                
+                 self.transform = .identity // this returns the card to position if user swipes just a little bit to the right or left.
+                
+            }
+           
         }) { _ in
-            print("DEBUG: aNIMAtion did complete")
+          //  print("DEBUG: aNIMAtion did complete") here, the code for what happens after swipe ends is written here.
+            if shouldDismissCard == true {
+            self.removeFromSuperview() // this ensure the card in focus is removed from the superview and not just floating around somewhere, this is the completion handler block.
+            }
         }
     }
     
